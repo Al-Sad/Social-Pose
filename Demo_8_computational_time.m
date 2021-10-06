@@ -25,7 +25,7 @@
 % distance estimation and crowd monitoring system for surveillance cameras",
 % IEEE Transactions on Pattern Analysis and Machine Intelligence, 2021.
 %
-% Last Modification: 15-September-2021
+% Last Modification: 28-September-2021
 %
 % Description:
 % This demo script produces the results that are depicted in Fig. 7 of the
@@ -53,12 +53,12 @@ for i = 1:length(F)
 end
 T_total_proposed = T_total_proposed(:);
 N_total_proposed = N_total_proposed(:);
-T_total_proposed = T_total_proposed(N_total_proposed > 0);
-N_total_proposed = N_total_proposed(N_total_proposed > 0);
-T_total_tracked = T_total_tracked(:);
-N_total_tracked = N_total_tracked(:);
-T_total_tracked = T_total_tracked(N_total_tracked > 0);
-N_total_tracked = N_total_tracked(N_total_tracked > 0);
+T_total_proposed = T_total_proposed(N_total_proposed > 1);
+N_total_proposed = N_total_proposed(N_total_proposed > 1);
+T_total_tracked  = T_total_tracked(:);
+N_total_tracked  = N_total_tracked(:);
+T_total_tracked  = T_total_tracked(N_total_tracked > 1);
+N_total_tracked  = N_total_tracked(N_total_tracked > 1);
 
 %% Arrange results
 Num_proposed = unique(N_total_proposed);
@@ -74,26 +74,21 @@ end
 
 %% Plotting
 figure('Color',[1,1,1],'Position',[100 100 750 550]); hold on;
-plot(-1:0.1:40,repelem(25,length(-1:0.1:40)),'k-','linewidth',1.5);
-plot(-1:0.1:40,repelem(12,length(-1:0.1:40)),'k-.','linewidth',1.5);
-plot(-1:0.1:40,repelem(5,length(-1:0.1:40)),'k:','linewidth',1.5);
-plot(Num_proposed, md_proposed,'-b','linewidth',2);
-plot(Num_tracked, md_tracked,'-r','linewidth',2);
-plot(-1:0.1:40,repelem(mean(1./T_total_proposed),length(-1:0.1:40)),...
-    'b--','linewidth',2);
-plot(-1:0.1:40,repelem(mean(1./T_total_tracked),length(-1:0.1:40)),...
-    'r--','linewidth',2);
 boxchart(N_total_proposed,1./T_total_proposed,'MarkerStyle','none',...
     'BoxWidth',0.5,'BoxFaceColor','b','LineWidth',1.5);
 boxchart(N_total_tracked,1./T_total_tracked,'MarkerStyle','none',...
     'BoxWidth',0.5,'BoxFaceColor','r','LineWidth',1.5);
-legend('25 fps threshold','12 fps threshold','5 fps threshold',...
-    'Proposed S/T: \times','Proposed S/T: \surd','Proposed S/T: \times (Average)',...
-    'Proposed S/T: \surd (Average)','Orientation','vertical','NumColumns',2,...
-    'Fontsize',16,'fontweight','bold','Box','off','location','northeast');
-grid on; box on; axis([0.25 max(Num_tracked)+0.75 4 1.3e3]); xticks(1:4:max(Num_tracked));
+plot(-1:0.1:40,repelem(mean(1./T_total_proposed),length(-1:0.1:40)),...
+    'b-','linewidth',2);
+plot(-1:0.1:40,repelem(mean(1./T_total_tracked),length(-1:0.1:40)),...
+    'r-','linewidth',2);
+legend('Proposed S/T: \times','Proposed S/T: \surd',...
+    'Average','Average','Orientation','vertical','Fontsize',19,...
+    'fontweight','bold','Box','off','location','northeast','NumColumns',2);
+xticks(2:3:max(Num_tracked)); yticks(0:25:200);
+grid on; box on; axis([1.25 max(Num_tracked)+0.75 1 200]);
 xlabel('Number of detected/tracked people'); ylabel('Frames per second');
-set(gca,'fontweight','bold','fontsize',24,'FontName','Times','Yscale','log');
+set(gca,'fontweight','bold','fontsize',24,'FontName','Times');
 set(gcf,'Units','inches'); screenposition = get(gcf,'Position');
 set(gcf,'PaperPosition',[0 0 screenposition(3:4)],'PaperSize',screenposition(3:4));
 
