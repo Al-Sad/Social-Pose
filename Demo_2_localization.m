@@ -21,11 +21,11 @@
 % Email: mohammad.al-sad@tuni.fi, alsad.mohamed@gmail.com
 %
 % The following reference should be cited whenever this script is used:
-% M. Al-Sa'd, S. Kiranyaz, M. Gabbouj, "A machine learning-based social
-% distance estimation and crowd monitoring system for surveillance cameras",
-% IEEE Transactions on Pattern Analysis and Machine Intelligence, 2021.
+% M. Al-Sa'd, S. Kiranyaz, I. Ahmad, C. Sundell, M. Vakkuri, and M. Gabbouj,
+% "A social distance estimation and crowd monitoring system for surveillance
+% cameras", Future Generation Computer Systems, (2021).
 %
-% Last Modification: 15-September-2021
+% Last Modification: 12-November-2021
 %
 % Description:
 % This demo script produces the results that are depicted in Fig. 4a of the
