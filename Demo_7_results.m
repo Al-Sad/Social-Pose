@@ -23,7 +23,7 @@
 % The following reference should be cited whenever this script is used:
 % M. Al-Sa'd, S. Kiranyaz, I. Ahmad, C. Sundell, M. Vakkuri, and M. Gabbouj,
 % "A social distance estimation and crowd monitoring system for surveillance
-% cameras", Future Generation Computer Systems, (2021).
+% cameras", TBA, (2021).
 %
 % Last Modification: 12-November-2021
 %
