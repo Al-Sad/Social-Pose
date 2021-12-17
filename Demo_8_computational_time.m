@@ -25,7 +25,7 @@
 % "A social distance estimation and crowd monitoring system for surveillance
 % cameras", TBA, (2021).
 %
-% Last Modification: 12-November-2021
+% Last Modification: 16-November-2021
 %
 % Description:
 % This demo script produces the results that are depicted in Fig. 7 of the
@@ -76,24 +76,39 @@ end
 figure('Color',[1,1,1],'Position',[100 100 750 550]); hold on;
 boxchart(N_total_proposed,1./T_total_proposed,'MarkerStyle','none',...
     'BoxWidth',0.5,'BoxFaceColor','b','LineWidth',1.5);
-boxchart(N_total_tracked,1./T_total_tracked,'MarkerStyle','none',...
-    'BoxWidth',0.5,'BoxFaceColor','r','LineWidth',1.5);
 plot(-1:0.1:40,repelem(mean(1./T_total_proposed),length(-1:0.1:40)),...
     'b-','linewidth',2);
+legend('Proposed S/T: \times','Average','Orientation','vertical',...
+    'Fontsize',25,'fontweight','bold','Box','off','location','northeast');
+xticks(2:3:max(Num_proposed)); yticks(50:25:200);
+grid on; box on; axis([1.25 max(Num_proposed)+0.75 50 200]);
+xlabel('Number of detected people'); ylabel('Frames per second');
+yv = get(gca,'YTick'); yyaxis right; yticks(yv); yticklabels(round(1000./yv));
+axis([1.25 max(Num_proposed)+0.75 50 200]); ylabel('Milliseconds per frame');
+set(gca,'fontweight','bold','fontsize',24,'FontName','Times','YColor','k');
+set(gcf,'Units','inches'); screenposition = get(gcf,'Position');
+set(gcf,'PaperPosition',[0 0 screenposition(3:4)],'PaperSize',screenposition(3:4));
+
+figure('Color',[1,1,1],'Position',[100 100 750 550]); hold on;
+boxchart(N_total_tracked,1./T_total_tracked,'MarkerStyle','none',...
+    'BoxWidth',0.5,'BoxFaceColor','r','LineWidth',1.5);
 plot(-1:0.1:40,repelem(mean(1./T_total_tracked),length(-1:0.1:40)),...
     'r-','linewidth',2);
-legend('Proposed S/T: \times','Proposed S/T: \surd',...
-    'Average','Average','Orientation','vertical','Fontsize',19,...
-    'fontweight','bold','Box','off','location','northeast','NumColumns',2);
-xticks(2:3:max(Num_tracked)); yticks(0:25:200);
-grid on; box on; axis([1.25 max(Num_tracked)+0.75 1 200]);
-xlabel('Number of detected/tracked people'); ylabel('Frames per second');
-set(gca,'fontweight','bold','fontsize',24,'FontName','Times');
+legend('Proposed S/T: \surd','Average','Orientation','vertical',...
+    'Fontsize',25,'fontweight','bold','Box','off','location','northeast');
+xticks(2:3:max(Num_tracked)); yticks(5:10:75);
+grid on; box on; axis([1.25 max(Num_tracked)+0.75 1 75]);
+xlabel('Number of tracked people'); ylabel('Frames per second');
+yv = get(gca,'YTick'); yyaxis right;
+yticks(yv); yticklabels(round(1000./yv)); axis([1.25 max(Num_tracked)+0.75 1 75]);
+ylabel('Milliseconds per frame');
+set(gca,'fontweight','bold','fontsize',24,'FontName','Times','YColor','k');
 set(gcf,'Units','inches'); screenposition = get(gcf,'Position');
 set(gcf,'PaperPosition',[0 0 screenposition(3:4)],'PaperSize',screenposition(3:4));
 
 %% Saving
 opt = input('Do you want to save all main results (Y/N)\n','s');
 if(opt == 'y' || opt == 'Y')
-    print(1,'computation_time','-dpdf','-r400');
+    print(1,'computation_time_proposed','-dpdf','-r400');
+    print(2,'computation_time_tracked','-dpdf','-r400');
 end
