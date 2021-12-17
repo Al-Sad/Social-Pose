@@ -122,9 +122,9 @@ save(results_path,'PDR_basic','PDR_proposed','PDR_tracked',...
 %% Social distance violations detection
 disp('Social distance violations detection ...');
 r            = linspace(1,2.5,31); % Social safety distance
-P_basic      = zeros(length(r),2);
-P_proposed   = zeros(length(r),2);
-P_tracked    = zeros(length(r),2);
+P_basic      = zeros(length(r),4);
+P_proposed   = zeros(length(r),4);
+P_tracked    = zeros(length(r),4);
 VCR_basic    = zeros(length(r),1);
 VCR_proposed = zeros(length(r),1);
 VCR_tracked  = zeros(length(r),1);

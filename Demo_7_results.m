@@ -25,7 +25,7 @@
 % "A social distance estimation and crowd monitoring system for surveillance
 % cameras", TBA, (2021).
 %
-% Last Modification: 12-November-2021
+% Last Modification: 17-December-2021
 %
 % Description:
 % This demo script produces the results that are depicted in Table 2 and
@@ -52,6 +52,8 @@ PDR_all  = zeros(3,12);
 Err_all  = zeros(3,12);
 Acc_all  = zeros(3,12);
 F1s_all  = zeros(3,12);
+Pre_all  = zeros(3,12);
+Rec_all  = zeros(3,12);
 VCR_all  = zeros(3,12);
 SSIM_all = zeros(3,12);
 CORR_all = zeros(3,12);
@@ -76,12 +78,14 @@ for i = 1:12
     Err_all(:,i)  = [E_basic; E_proposed; E_tracked];
     Acc_all(:,i)  = [mean(P_basic(:,1)); mean(P_proposed(:,1)); mean(P_tracked(:,1))];
     F1s_all(:,i)  = [mean(P_basic(:,2)); mean(P_proposed(:,2)); mean(P_tracked(:,2))];
+    Pre_all(:,i)  = [mean(P_basic(:,3)); mean(P_proposed(:,3)); mean(P_tracked(:,3))];
+    Rec_all(:,i)  = [mean(P_basic(:,4)); mean(P_proposed(:,4)); mean(P_tracked(:,4))];
     VCR_all(:,i)  = [mean(VCR_basic);  mean(VCR_proposed);  mean(VCR_tracked)];
     SSIM_all(:,i) = [mean(SSIM_basic); mean(SSIM_proposed); mean(SSIM_tracked)];
     CORR_all(:,i) = [mean(CORR_basic); mean(CORR_proposed); mean(CORR_tracked)];
     IOU_all(:,i)  = [mean(IOU_basic);  mean(IOU_proposed);  mean(IOU_tracked)];
 end
-Res_all = [PDR_all; Err_all; Acc_all; F1s_all; VCR_all; SSIM_all; CORR_all; IOU_all];
+Res_all = [PDR_all; Err_all; Acc_all; F1s_all; Pre_all; Rec_all; VCR_all; SSIM_all; CORR_all; IOU_all];
 Overall = zeros(size(Res_all,1),1);
 for i = 1:size(Res_all,1)
     Overall(i) = sum([c(1).*Res_all(i,1:4) c(2).*Res_all(i,5) c(3).*Res_all(i,6:12)]);
@@ -98,7 +102,7 @@ switch disp_table
             fprintf('\n');
         end
     case 1 % LATEX style
-        for i = 1:8
+        for i = 1:10
             st = (i-1)*3;
             if(i==1)
                 fprintf('%s\n','\multirow{3}{*}{\textbf{PDR}}');
@@ -109,12 +113,16 @@ switch disp_table
             elseif(i==4)
                 fprintf('%s\n','\multirow{3}{*}{\textbf{F1-score}}');
             elseif(i==5)
-                fprintf('%s\n','\multirow{3}{*}{\textbf{VCR}}');
+                fprintf('%s\n','\multirow{3}{*}{\textbf{Precision}}');
             elseif(i==6)
-                fprintf('%s\n','\multirow{3}{*}{\textbf{SSIM}}');
+                fprintf('%s\n','\multirow{3}{*}{\textbf{Recall}}');
             elseif(i==7)
-                fprintf('%s\n','\multirow{3}{*}{\textbf{CORR}}');
+                fprintf('%s\n','\multirow{3}{*}{\textbf{VCR}}');
             elseif(i==8)
+                fprintf('%s\n','\multirow{3}{*}{\textbf{SSIM}}');
+            elseif(i==9)
+                fprintf('%s\n','\multirow{3}{*}{\textbf{CORR}}');
+            elseif(i==10)
                 fprintf('%s\n','\multirow{3}{*}{\textbf{IOU}}');
             end
             
@@ -134,7 +142,7 @@ switch disp_table
                     fprintf('\n%s\n','\\\cline{2-16}');
                 elseif(j==2)
                     fprintf('\n%s\n','\\\cline{3-16}');
-                elseif(j==3 && i < 8)
+                elseif(j==3 && i < 10)
                     fprintf('\n%s\n','\\\hhline{*{16}{-}}\multicolumn{16}{c}{}\\[-10pt]\hhline{*{16}{-}}');
                 else
                     fprintf('\n%s\n','\\\cline{1-16}');

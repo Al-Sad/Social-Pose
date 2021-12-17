@@ -25,7 +25,7 @@
 % "A social distance estimation and crowd monitoring system for surveillance
 % cameras", TBA, (2021).
 %
-% Last Modification: 12-November-2021
+% Last Modification: 17-December-2021
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~%
 %                 Generalized Classification Performance
 %
@@ -43,5 +43,7 @@ function P = class_perf(label_true,label_pred)
 [TP, TN, FP, FN] = class_perf_count(label_true,label_pred);
 accuracy = (TP + TN)./(TP + TN + FP + FN);
 f1_score = (2*TP)./(2*TP + FP + FN);
-P = [accuracy, f1_score];
+precision = TP./(TP + FP);
+recall = TP./(TP + FN);
+P = [accuracy, f1_score, precision, recall];
 end
