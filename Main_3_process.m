@@ -25,7 +25,7 @@
 % "A social distance estimation and crowd monitoring system for surveillance
 % cameras", TBA, (2021).
 %
-% Last Modification: 12-November-2021
+% Last Modification: 17-December-2021
 %
 % Description:
 % This main script executes and evaluates the proposed social distance
