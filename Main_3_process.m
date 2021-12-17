@@ -65,7 +65,7 @@ detection_path = ['Data\Ground Position Detections\' scene '.mat'];
 % Top view position path
 top_view_path = ['Data\Top View Positions\' scene '.mat'];
 % Tracked positions path
-tracked_path = ['Data\Tracked Positions\' scene '_mod.mat'];
+tracked_path = ['Data\Tracked Positions\' scene '.mat'];
 % Performance evaluation path
 results_path = ['Data\Performance Evaluation\' scene '.mat'];
 
