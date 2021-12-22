@@ -25,14 +25,14 @@
 % "A social distance estimation and crowd monitoring system for surveillance
 % cameras", TBA, (2021).
 %
-% Last Modification: 17-December-2021
+% Last Modification: 22-December-2021
 %
 % Description:
 % This demo script produces the results that are depicted in Table 2 and
-% Fig. 6 of the paper. It generates the proposed system performance
+% Fig. 7 of the paper. It generates the proposed system performance
 % evaluation results in terms of PDR, localization relative error,
-% accuracy, F1-score, VCR, SSIM, CORR, and IOU. In addition, it compares
-% the proposed system with the basic approach.
+% accuracy, F1-score, precision, recall, VCR, CORR, and IOU. In addition,
+% it compares the proposed system with the basic approach.
 
 %% Initialization
 clear; close all; clc;

@@ -33,12 +33,12 @@
 % subjects, transforms their positions to the real-world coordinates,
 % smooths/tracks the measurements, recognizes social distance violations,
 % and identifies overcrowded regions. Besides it evaluates the system in
-% terms of PDR, localization relative error, accuracy, F1-score, VCR, SSIM,
-% CORR, and IOU. The localization, top-view transformation, and tracking
-% results are saved in the "Ground Position Detections", "Top View Positions",
-% and "Tracked Positions" folders under "Data", respectively. Additionally,
-% the performance evaluations are saved in the "Performance Evaluation"
-% folder under "Data".
+% terms of PDR, localization relative error, accuracy, F1-score, VCR,
+% precision, recall, SSIM, CORR, and IOU. The localization, top-view
+% transformation, and tracking results are saved in the
+% "Ground Position Detections", "Top View Positions", and "Tracked Positions"
+% folders under "Data", respectively. Additionally, the performance
+% evaluations are saved in the "Performance Evaluation" folder under "Data".
 
 %% Initialization
 clear; close all; clc;
