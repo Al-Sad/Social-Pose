@@ -1,7 +1,7 @@
 # The Social-Pose MATLAB Package
 The material in this repository is provided to supplement the following paper:
 M. Al-Sa'd, S. Kiranyaz, I. Ahmad, C. Sundell, M. Vakkuri, and M. Gabbouj, “A social distance estimation and crowd monitoring system for surveillance cameras”, *TBA*, (2021).
-![plot](./Data/example_frame.png)
+![plot](./Data/example.gif)
 
 The MATLAB scripts, functions, and datasets listed in this repository are used to produce results, and supporting figures illustrated in the paper.
 
