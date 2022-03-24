@@ -47,7 +47,7 @@ The developed Social-Pose package contains the following main scripts within its
 -   Process: It localizes the human subjects, transforms their positions to the real-world coordinates, smooths/tracks the measurements, recognizes social distance violations, and identifies overcrowded regions. Besides it evaluates the system in terms of PDR, localization relative error, accuracy, F1-score, precision, recall, VCR, CORR, and IOU. The localization, top-view transformation, and tracking results are saved in the Ground Position Detections, Top View Positions, and Tracked Positions folders under Data, respectively. Additionally, the performance evaluations are saved in the Performance Evaluation folder under Data.
 ### Main_4_integrated_videos.m
 -   Description: This main script produces the proposed system integrated video frames and dynamic top-view map.
--   Process: It generates the integrated results and saves them in video format in the Integrated Videos folder under Data. The integrated videos can be downloaded from: https://tuni-my.sharepoint.com/:f:/r/personal/mohammad_al-sad_tuni_fi/Documents/CVDI%20Project/First%20Round/Permenant%20DONT%20REMOVE/Integrated%20Videos?csf=1&web=1&e=fqzRKA.
+-   Process: It generates the integrated results and saves them in video format in the Integrated Videos folder under Data. The integrated videos can be downloaded from: https://drive.google.com/drive/folders/1uLCG3FtVe_OHmDxVk1vYRIIFNp7HBy3z?usp=sharing.
 ### Main_5_computational_time.m
 -   Description: This main script produces the proposed system computational analysis results.
 -   Process: It generates the system processing frame rate with and without the smoothing/tracking stage and saves the results in the Computational Time folder under Data.
@@ -96,7 +96,7 @@ This folder holds the optimal GNN parameters for each utilized video sequence.
 ### Ground Position Detections:
 This folder holds the localization results using the proposed and basic approaches for each utilized video sequence.
 ### Integrated Videos:
-It contains the output of the main script *Main_4_integrated_videos.m*; the proposed system integrated videos for each utilized video sequence. Alternatively, the videos can be downloaded from https://tuni-my.sharepoint.com/:f:/r/personal/mohammad_al-sad_tuni_fi/Documents/CVDI%20Project/First%20Round/Permenant%20DONT%20REMOVE/Integrated%20Videos?csf=1&web=1&e=fqzRKA.
+It contains the output of the main script *Main_4_integrated_videos.m*; the proposed system integrated videos for each utilized video sequence. Alternatively, the videos can be downloaded from https://drive.google.com/drive/folders/1uLCG3FtVe_OHmDxVk1vYRIIFNp7HBy3z?usp=sharing.
 ### Layout:
 This folder contains the user selected ROI in the image-pixel and real-world coordinates for each utilized video sequence.
 ### Performance Evaluation:
@@ -114,4 +114,4 @@ It contains the homography matrix and image-to-real distance scale for each util
 ### HumanJoints:
 This folder contains the OpenPose estimated joints for each utilized video sequence.
 ### Videos:
-It includes all utilized video sequences but sampled at 1 frame per second. Due to size limitation, the video sequences can be downloaded from https://tuni-my.sharepoint.com/:f:/g/personal/mohammad_al-sad_tuni_fi/Eku2N6IyUbpPtWGwDX5y16cBEykJ-hegdDcThbJQgpyt6g?e=N02Jub.
+It includes all utilized video sequences but sampled at 1 frame per second. Due to size limitation, the video sequences can be downloaded from https://drive.google.com/drive/folders/17aTEaahbttTdMBVT4nj5EjIMk4oansIp?usp=sharing.
